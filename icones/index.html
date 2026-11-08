@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icônes darwill</title>
+<meta name="description" content="Bibliothèque des icônes darwill : recherche, thèmes, couleurs des palettes darwill, taille et téléchargement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F5F1; --surface:#FFFFFF; --ink:#211A28; --muted:#625B6B; --line:#DFDCD3; --accent:#1950DA;
+  --accent-soft:#E3EAFB; --chip:#EEEDE8; --tile-dark:#211A28; --focus:#4285F4;
+  --f:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16121B; --surface:#201A27; --ink:#EEEAF3; --muted:#AAA3B5; --line:#3A3344; --accent:#8DB0FF;
+    --accent-soft:#2A3350; --chip:#2B2433; --tile-dark:#0E0B12;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16121B; --surface:#201A27; --ink:#EEEAF3; --muted:#AAA3B5; --line:#3A3344; --accent:#8DB0FF;
+  --accent-soft:#2A3350; --chip:#2B2433; --tile-dark:#0E0B12;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.5 var(--f)}
+a{color:var(--accent)}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1440px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 8px}
+h1{font-weight:600;font-size:26px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+h1 b{color:#4285F4;font-weight:600}
+.lede{color:var(--muted);margin:0;max-width:72ch}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);padding:12px 0}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;padding:0 12px;min-height:42px}
+.search:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.search input{border:0;background:transparent;outline:0;flex:1;min-width:0;padding:8px 0}
+.search svg{flex:none;color:var(--muted)}
+.group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.group > span.lab{color:var(--muted);font-size:12px}
+select{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-height:40px}
+.swatches{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.sw{width:24px;height:24px;border-radius:50%;border:1px solid rgba(0,0,0,.18);cursor:pointer;padding:0;position:relative}
+.sw[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
+.sw-sep{width:1px;height:20px;background:var(--line);margin:0 4px}
+.toggle{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 10px;cursor:pointer;min-height:40px}
+.toggle[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent)}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:24px;padding-top:18px;padding-bottom:40px}
+nav.themes{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 100px);overflow:auto;padding-right:4px}
+nav.themes button{display:flex;justify-content:space-between;gap:8px;width:100%;text-align:left;border:0;background:none;
+  padding:6px 10px;border-radius:8px;cursor:pointer;color:var(--ink)}
+nav.themes button:hover{background:var(--chip)}
+nav.themes button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:500}
+nav.themes .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.status{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.status p{margin:0;color:var(--muted)}
+.btn{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:8px 14px;cursor:pointer;
+  font-weight:500;min-height:40px}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:disabled{opacity:.5;cursor:default}
+section.th{margin-bottom:28px}
+section.th h2{font-size:15px;font-weight:600;margin:0 0 10px;display:flex;gap:8px;align-items:baseline}
+section.th h2 span{color:var(--muted);font-weight:400;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:14px 8px 10px;cursor:pointer;text-align:center;min-height:132px}
+.tile:hover{border-color:var(--accent)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dark .tile,.dark .preview{background:var(--tile-dark);border-color:var(--tile-dark)}
+.dark .tile .nm{color:#D8D3E0}
+.tile svg{width:56px;height:56px}
+.tile .nm{font-size:12px;line-height:1.3;color:var(--ink);overflow-wrap:anywhere}
+.empty{padding:40px 0;color:var(--muted)}
+dialog{border:0;border-radius:16px;padding:0;max-width:min(560px,calc(100vw - 32px));width:100%;background:var(--surface);
+  color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(22,18,27,.45)}
+.dlg{padding:20px;display:grid;gap:14px}
+.dlg .top{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.dlg h3{margin:0;font-size:18px;font-weight:600;line-height:1.3}
+.dlg .meta{color:var(--muted);font-size:12px;margin:2px 0 0}
+.preview{display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px}
+.preview svg{width:160px;height:160px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.x{border:0;background:var(--chip);border-radius:8px;width:36px;height:36px;cursor:pointer;flex:none}
+.note{font-size:12px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;color:var(--muted);font-size:12px}
+footer p{margin:0 0 6px;max-width:100ch}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);
+  padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+.toast.on{opacity:1}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  nav.themes{position:static;max-height:none;display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+  nav.themes button{width:auto;white-space:nowrap;background:var(--chip)}
+  nav.themes .n{display:none}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}
+  .tile svg{width:44px;height:44px}
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>Icônes <b>darwill</b></h1>
+  <p class="lede" id="lede">Bibliothèque des icônes des livrables darwill, au gabarit de la banque de slides : trait 4 sur 100, bouts arrondis. Trait noir par défaut, bleu <code>4285F4</code> pour l'icône mise en avant.</p>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <label class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Rechercher : budget, télévision, cloud, contrat…" autocomplete="off" aria-label="Rechercher une icône">
+    </label>
+    <div class="group" role="group" aria-label="Couleur">
+      <span class="lab">Couleur</span>
+      <div class="swatches" id="swatches"></div>
+    </div>
+    <div class="group">
+      <label class="lab" for="size">Taille</label>
+      <select id="size">
+        <option value="64">64 px</option><option value="128">128 px</option><option value="256">256 px</option>
+        <option value="512" selected>512 px</option><option value="1024">1 024 px</option><option value="2048">2 048 px</option>
+      </select>
+      <label class="lab" for="fmt">Format</label>
+      <select id="fmt">
+        <option value="png" selected>PNG</option><option value="svg">SVG</option><option value="jpg">JPG</option><option value="webp">WebP</option>
+      </select>
+      <button class="toggle" id="dark" aria-pressed="false" title="Aperçu sur fond sombre">Fond sombre</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap layout">
+  <nav class="themes" id="themes" aria-label="Thèmes"></nav>
+  <div>
+    <div class="status">
+      <p id="count" aria-live="polite"></p>
+      <button class="btn ghost" id="zip" disabled>Télécharger les icônes affichées (ZIP)</button>
+    </div>
+    <div id="results"></div>
+  </div>
+</main>
+
+<footer class="wrap">
+  <p id="credits"></p>
+  <p>Dans Google Slides : choisir PNG et la couleur, puis « Copier l'image » dans la fiche de l'icône et coller dans la slide (Slides n'accepte pas le SVG). Les mêmes icônes sont dans la banque de slides, planches ICO-001 à ICO-015 (texte alternatif = nom de l'icône).</p>
+  <p>Une partie des icônes est adaptée de <a href="https://lucide.dev">Lucide</a> (trait ramené au gabarit darwill, ISC License, © Lucide Icons and Contributors ; certaines dérivées de Feather, MIT License, © Cole Bemis) : <a href="LICENSE-LUCIDE.txt">texte des licences</a>.</p>
+</footer>
+
+<dialog id="dlg" aria-labelledby="d-title">
+  <div class="dlg">
+    <div class="top">
+      <div><h3 id="d-title"></h3><p class="meta" id="d-meta"></p></div>
+      <button class="x" id="d-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="preview" id="d-prev"></div>
+    <div class="actions">
+      <button class="btn" data-dl="png">PNG</button>
+      <button class="btn" data-dl="svg">SVG</button>
+      <button class="btn" data-dl="jpg">JPG</button>
+      <button class="btn" data-dl="webp">WebP</button>
+      <button class="btn ghost" id="d-copy-img">Copier l'image</button>
+      <button class="btn ghost" id="d-copy-svg">Copier le SVG</button>
+    </div>
+    <p class="note" id="d-note"></p>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+<script>
+(function(){
+  const COLOURS = [
+    ["Banque", [["000000","Noir (trait par défaut)"],["4285F4","Bleu de tête (icône mise en avant)"],["E2000B","Rouge de la banque"],["434343","Gris secondaire"],["FFFFFF","Blanc (fond sombre)"]]],
+    ["Teintes", [["7B3FF2","Violet"],["FF5C8A","Rose"],["FFB020","Ambre"],["18C5B4","Turquoise"],["CC0000","Rouge"],["F1C232","Jaune"],["9900FF","Pourpre"]]],
+    ["Bleus", [["B0C3EF","Bleu 1"],["4873E0","Bleu 2"],["1950DA","Bleu 3"],["133DAB","Bleu 4"],["08004A","Bleu 5"]]],
+    ["Violets", [["C6BBF6","Violet 1"],["8C6AEF","Violet 2"],["490DF0","Violet 3"],["380ABF","Violet 4"],["130348","Violet 5"]]],
+    ["Neutres", [["211A28","Sombre"],["AEA79A","Autre"],["B1B7C5","Contexte"],["CBD1DF","Contexte clair"],["EEEDE8","Fond d'encadré"]]]
+  ];
+  const ORIG = {banque:"banque d'origine", ajout:"ajoutée le 09/11/2026", lucide:"adaptée de Lucide"};
+  const st = {q:"", t:"all", c:"000000", size:512, fmt:"png", dark:false};
+  let DATA = null, CUR = null, VIS = [];
+  const $ = (id) => document.getElementById(id);
+  const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+  function svgOf(ic, c, px){
+    const sz = px ? ` width="${px}" height="${px}"` : "";
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"${sz}><g fill="none" stroke="#${c}" color="#${c}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">${ic.d}</g></svg>`;
+  }
+  function toast(msg){ const t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("on"), 1800); }
+
+  function swatches(){
+    const box = $("swatches"); box.innerHTML = "";
+    COLOURS.forEach(([g, list], gi) => {
+      if (gi) { const s = document.createElement("span"); s.className = "sw-sep"; box.appendChild(s); }
+      list.forEach(([hex, name]) => {
+        const b = document.createElement("button");
+        b.className = "sw"; b.style.background = "#" + hex; b.title = `${g} : ${name} (${hex})`;
+        b.setAttribute("aria-label", `${name}, ${hex}`); b.setAttribute("aria-pressed", String(hex === st.c));
+        b.onclick = () => { st.c = hex; if (hex === "FFFFFF" && !st.dark) setDark(true); render(); swatches(); save(); };
+        box.appendChild(b);
+      });
+    });
+  }
+  function setDark(v){ st.dark = v; $("dark").setAttribute("aria-pressed", String(v)); document.body.classList.toggle("dark", v); }
+
+  function filtered(){
+    const words = norm(st.q).split(/\s+/).filter(Boolean);
+    return DATA.icons.filter(ic => (st.t === "all" || ic.t === st.t) && words.every(w => ic._k.includes(w)));
+  }
+  function nav(list){
+    const counts = {}; list.forEach(ic => counts[ic.t] = (counts[ic.t] || 0) + 1);
+    const box = $("themes"); box.innerHTML = "";
+    const all = [["all", "Toutes les icônes", st.q ? list.length : DATA.icons.length]];
+    DATA.themes.forEach(([k, title]) => all.push([k, title, st.q ? (counts[k] || 0) : DATA.icons.filter(i => i.t === k).length]));
+    all.forEach(([k, title, n]) => {
+      if (st.q && !n && k !== "all" && k !== st.t) return;
+      const b = document.createElement("button");
+      b.innerHTML = `<span>${title}</span><span class="n">${n}</span>`;
+      b.setAttribute("aria-current", String(st.t === k));
+      b.onclick = () => { st.t = k; render(); save(); window.scrollTo({top: 0, behavior: "smooth"}); };
+      box.appendChild(b);
+    });
+  }
+  function render(){
+    const words = norm(st.q).split(/\s+/).filter(Boolean);
+    const base = DATA.icons.filter(ic => words.every(w => ic._k.includes(w)));
+    nav(base);
+    VIS = filtered();
+    $("count").textContent = VIS.length ? `${VIS.length} icône${VIS.length > 1 ? "s" : ""}` + (st.q ? ` pour « ${st.q} »` : "") : "";
+    $("zip").disabled = !VIS.length;
+    const res = $("results"); res.innerHTML = "";
+    if (!VIS.length) { res.innerHTML = `<p class="empty">Aucune icône ne correspond. Essayer un synonyme ou un mot en anglais (les icônes adaptées de Lucide gardent leurs mots-clés anglais).</p>`; return; }
+    const byT = {}; VIS.forEach(ic => (byT[ic.t] = byT[ic.t] || []).push(ic));
+    DATA.themes.forEach(([k, title]) => {
+      if (!byT[k]) return;
+      const sec = document.createElement("section"); sec.className = "th";
+      sec.innerHTML = `<h2>${title} <span>${byT[k].length}</span></h2>`;
+      const g = document.createElement("div"); g.className = "grid";
+      byT[k].forEach(ic => {
+        const b = document.createElement("button"); b.className = "tile"; b.type = "button";
+        b.innerHTML = svgOf(ic, st.c) + `<span class="nm">${ic.l}</span>`;
+        b.setAttribute("aria-label", ic.l); b.onclick = () => open(ic);
+        g.appendChild(b);
+      });
+      sec.appendChild(g); res.appendChild(sec);
+    });
+  }
+
+  function rasterBlob(ic, fmt, px){
+    return new Promise((ok, ko) => {
+      const img = new Image();
+      img.onload = () => {
+        const cv = document.createElement("canvas"); cv.width = cv.height = px;
+        const cx = cv.getContext("2d");
+        if (fmt === "jpg") { cx.fillStyle = st.c === "FFFFFF" ? "#211A28" : "#FFFFFF"; cx.fillRect(0, 0, px, px); }
+        cx.drawImage(img, 0, 0, px, px);
+        cv.toBlob(b => b ? ok(b) : ko(new Error("rendu impossible")), fmt === "jpg" ? "image/jpeg" : "image/" + fmt, 0.95);
+      };
+      img.onerror = ko;
+      img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgOf(ic, st.c, px));
+    });
+  }
+  async function blobOf(ic, fmt, px){
+    if (fmt === "svg") return new Blob([svgOf(ic, st.c)], {type: "image/svg+xml"});
+    return rasterBlob(ic, fmt, px);
+  }
+  const fname = (ic, fmt) => `darwill-${ic.s}-${st.c}${fmt === "svg" ? "" : "-" + st.size}.${fmt}`;
+  function save(){ try { localStorage.setItem("icones-darwill", JSON.stringify({c: st.c, size: st.size, fmt: st.fmt, dark: st.dark})); } catch(e) {} }
+  function load(){ try { Object.assign(st, JSON.parse(localStorage.getItem("icones-darwill") || "{}")); } catch(e) {} }
+  async function download(ic, fmt){
+    try {
+      const b = await blobOf(ic, fmt, st.size);
+      const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = fname(ic, fmt);
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } catch(e) { toast("Téléchargement impossible"); }
+  }
+  function open(ic){
+    CUR = ic;
+    $("d-title").textContent = ic.l;
+    const th = DATA.themes.find(t => t[0] === ic.t)[1];
+    $("d-meta").textContent = `${th} · banque : ${ic.p} · ${ORIG[ic.o]}`;
+    $("d-prev").innerHTML = svgOf(ic, st.c);
+    $("d-note").textContent = `Couleur ${st.c} · ${st.size} px pour PNG, JPG et WebP · fichier « ${ic.s} »`;
+    $("dlg").showModal();
+  }
+  $("d-close").onclick = () => $("dlg").close();
+  $("dlg").addEventListener("click", e => { if (e.target === $("dlg")) $("dlg").close(); });
+  document.querySelectorAll("[data-dl]").forEach(b => b.onclick = () => CUR && download(CUR, b.dataset.dl));
+  $("d-copy-svg").onclick = async () => { try { await navigator.clipboard.writeText(svgOf(CUR, st.c)); toast("SVG copié"); } catch(e) { toast("Copie impossible"); } };
+  $("d-copy-img").onclick = async () => {
+    try { const b = await rasterBlob(CUR, "png", st.size); await navigator.clipboard.write([new ClipboardItem({"image/png": b})]); toast("Image copiée : coller dans la slide"); }
+    catch(e) { toast("Copie impossible dans ce navigateur : télécharger le PNG"); }
+  };
+  $("zip").onclick = async () => {
+    if (!window.JSZip) { toast("Module ZIP non chargé"); return; }
+    const btn = $("zip"); btn.disabled = true;
+    try {
+      const z = new JSZip(); let k = 0;
+      for (const ic of VIS) { z.file(fname(ic, st.fmt), await blobOf(ic, st.fmt, st.size)); k++; if (k % 20 === 0) btn.textContent = `Préparation… ${k}/${VIS.length}`; }
+      const b = await z.generateAsync({type: "blob"});
+      const a = document.createElement("a"); a.href = URL.createObjectURL(b);
+      a.download = `icones-darwill-${st.t === "all" ? "toutes" : st.t}-${st.c}.zip`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } catch(e) { toast("ZIP impossible"); }
+    btn.textContent = "Télécharger les icônes affichées (ZIP)"; btn.disabled = false;
+  };
+  let tq; $("q").addEventListener("input", e => { clearTimeout(tq); tq = setTimeout(() => { st.q = e.target.value.trim(); render(); }, 120); });
+  $("size").onchange = e => { st.size = +e.target.value; save(); };
+  $("fmt").onchange = e => { st.fmt = e.target.value; save(); };
+  $("dark").onclick = () => { setDark(!st.dark); save(); };
+
+  load();
+  $("size").value = String(st.size); $("fmt").value = st.fmt; setDark(!!st.dark);
+  fetch("site.json").then(r => r.json()).then(d => {
+    DATA = d;
+    d.icons.forEach(ic => ic._k = norm(ic.l + " " + ic.k + " " + ic.s));
+    const nl = d.icons.filter(i => i.o === "lucide").length;
+    $("lede").textContent = `${d.icons.length} icônes au gabarit de la banque de slides darwill (trait 4 sur 100, bouts arrondis), classées en ${d.themes.length} thèmes. Trait noir par défaut ; bleu 4285F4 pour l'icône mise en avant.`;
+    $("credits").textContent = `${d.icons.length} icônes : ${d.icons.filter(i => i.o === "banque").length} de la banque d'origine, ${d.icons.filter(i => i.o === "ajout").length} ajoutées le 09/11/2026, ${nl} adaptées de Lucide.`;
+    swatches(); render();
+  }).catch(() => { $("results").innerHTML = '<p class="empty">Chargement des icônes impossible.</p>'; });
+})();
+</script>
+</body>
+</html>
